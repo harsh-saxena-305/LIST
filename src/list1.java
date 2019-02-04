@@ -1,7 +1,8 @@
 import java.util.Scanner;
 import static java.lang.System.exit;
+import static java.lang.System.setOut;
 
- class list1
+class list1
  {
 
    static int a[] = new int[5];
@@ -62,6 +63,17 @@ import static java.lang.System.exit;
     return false;
     }
 
+    public void reverse()
+    {
+     for (int j = 0; j <=i/2 ; j++) {
+      int t = a[j];
+      a[j] = a[i-1-j];
+      a[i-1-j] = t;
+     }
+     System.out.println("List has been reversed");
+     System.out.println();
+    }
+
 
     public static void main (String[] args)
     {
@@ -76,14 +88,14 @@ import static java.lang.System.exit;
       "3 - To print the list\t\t\t\t" +
       "4 - To check list is Empty or not\n" +
       "5 - To check list is Full or not\t" +
-      "6 - To exit\n");
+      "6 - To reverse the list\n" +
+      "7 - To exit\n");
       n = x.nextInt();
       switch (n)
       {
       case 1:
       if (obj.isFull())
       {
-          System.out.println(i);
       System.out.println("LIST IS FULL\n");
       break;
       }
@@ -126,6 +138,9 @@ import static java.lang.System.exit;
       System.out.println(obj.isFull() ? "LIST IS FULL\n" : "LIST IS NOT FULL\n");
       break;
       case 6:
+      obj.reverse();
+      break;
+      case 7:
       exit(0);
       break;
       default:
